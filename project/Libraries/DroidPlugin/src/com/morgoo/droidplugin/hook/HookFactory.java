@@ -27,6 +27,7 @@ import android.content.Context;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 
+import com.morgoo.droidplugin.hook.binder.IAlarmManagerHook;
 import com.morgoo.droidplugin.hook.binder.IAppOpsServiceBinderHook;
 import com.morgoo.droidplugin.hook.binder.IAudioServiceBinderHook;
 import com.morgoo.droidplugin.hook.binder.IClipboardBinderHook;
@@ -122,6 +123,7 @@ public class HookFactory {
 
     public final void installHook(Context context, ClassLoader classLoader) throws Throwable {
         installHook(new IClipboardBinderHook(context), classLoader);
+        installHook(new IAlarmManagerHook(context), classLoader);
         //for ISearchManager
         installHook(new ISearchManagerBinderHook(context), classLoader);
         //for INotificationManager
